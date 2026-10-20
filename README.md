@@ -18,8 +18,7 @@ in MLflow.
 running in your browser on fictional demo data. Nothing in it calls a real service, so you can
 start runs, approve them, replay them and edit workflows freely; everything resets on reload.
 
-This repository holds the demo and this page only. The source code is private and available on
-request.
+Source code available on request.
 
 ## The flagship flow
 
