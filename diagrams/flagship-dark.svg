@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 590" width="1280" height="590" role="img" aria-labelledby="t d">
+  <title id="t">Flagship workflow: Gmail to Sheets to HTML to Telegram</title><desc id="d">An order email is extracted by an agent, validated in code and routed by confidence. Low confidence waits for approval in the console. The order is appended to Sheets once, rendered as HTML, sent to Telegram, and the email is labelled processed.</desc>
+  <defs>
+    <filter id="card" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="rgb(0,0,0)" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgb(0,0,0)" flood-opacity="0.35"/>
+    </filter>
+    <filter id="key" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.8" flood-color="rgb(0,0,0)" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgb(0,0,0)" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.035"/>
+      <stop offset="0.6" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1.2 L8.8 5 L1 8.8 Z" fill="#4a4952"/>
+    </marker>
+    <linearGradient id="lit-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#6a9fff"/>
+      <stop offset="1" stop-color="#6a9fff" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#4ccf7a"/>
+      <stop offset="1" stop-color="#4ccf7a" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-amber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#f2b545"/>
+      <stop offset="1" stop-color="#f2b545" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#ef6a55"/>
+      <stop offset="1" stop-color="#ef6a55" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-violet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#a894ff"/>
+      <stop offset="1" stop-color="#a894ff" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-cyan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#4fc3e8"/>
+      <stop offset="1" stop-color="#4fc3e8" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-pink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#f083b4"/>
+      <stop offset="1" stop-color="#f083b4" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-slate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#9aa3b2"/>
+      <stop offset="1" stop-color="#9aa3b2" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-coral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"/>
+      <stop offset="0.18" stop-color="#f27b58"/>
+      <stop offset="1" stop-color="#f27b58" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="1279" height="589" rx="20" fill="#0f0f11" stroke="rgba(255,255,255,0.11)"/>
+  <g font-family="Switzer, Inter, 'SF Pro Text', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"><text x="40" y="52" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#8b8b96">READ AND DECIDE</text><text x="40" y="334" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#8b8b96">WRITE AND TELL, RIGHT TO LEFT</text><rect x="40" y="76" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="40" y="76" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="40.5" y="76.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="53" y="93" width="30" height="30" rx="8" fill="#f2b545" fill-opacity="0.2"/>
+  <rect x="53.5" y="93.5" width="29" height="29" rx="7.5" fill="none" stroke="#f2b545" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(59 99) scale(0.0703125)" fill="#ffc85e" d="M224,44H32A12,12,0,0,0,20,56V192a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V56A12,12,0,0,0,224,44ZM193.15,68,128,127.72,62.85,68ZM44,188V83.28l75.89,69.57a12,12,0,0,0,16.22,0L212,83.28V188Z"/>
+  <text x="92" y="105" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">Order email</text><text x="92" y="123" font-size="12" fill="#a8a8b1">Gmail label orders</text><g>
+    <rect x="243.725" y="86" width="62.275000000000006" height="22" rx="7" fill="#141416"/>
+    <rect x="243.725" y="86" width="62.275000000000006" height="22" rx="7" fill="#f2b545" fill-opacity="0.2"/>
+    <rect x="244.225" y="86.5" width="61.275000000000006" height="21" rx="6.5" fill="none" stroke="#f2b545" stroke-opacity="0.42000000000000004"/>
+    <path d="M249.725 87.2 H300" stroke="#ffc85e" stroke-opacity="0.3"/>
+    <text x="274.8625" y="101" text-anchor="middle" font-size="11.5" font-weight="550" fill="#ffc85e">Trigger</text>
+  </g><rect x="348" y="76" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="348" y="76" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="348.5" y="76.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="361" y="93" width="30" height="30" rx="8" fill="#a894ff" fill-opacity="0.2"/>
+  <rect x="361.5" y="93.5" width="29" height="29" rx="7.5" fill="none" stroke="#a894ff" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(367 99) scale(0.0703125)" fill="#bfb0ff" d="M72,104a16,16,0,1,1,16,16A16,16,0,0,1,72,104Zm96,16a16,16,0,1,0-16-16A16,16,0,0,0,168,120Zm68-40V192a36,36,0,0,1-36,36H56a36,36,0,0,1-36-36V80A36,36,0,0,1,56,44h60V16a12,12,0,0,1,24,0V44h60A36,36,0,0,1,236,80Zm-24,0a12,12,0,0,0-12-12H56A12,12,0,0,0,44,80V192a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12Zm-12,82a30,30,0,0,1-30,30H86a30,30,0,0,1,0-60h84A30,30,0,0,1,200,162Zm-80-6v12h16V156ZM86,168H96V156H86a6,6,0,0,0,0,12Zm90-6a6,6,0,0,0-6-6H160v12h10A6,6,0,0,0,176,162Z"/>
+  <text x="400" y="105" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">extract</text><text x="400" y="123" font-size="12" fill="#a8a8b1">agent, no tools</text><g>
+    <rect x="564.375" y="86" width="49.625" height="22" rx="7" fill="#141416"/>
+    <rect x="564.375" y="86" width="49.625" height="22" rx="7" fill="#a894ff" fill-opacity="0.2"/>
+    <rect x="564.875" y="86.5" width="48.625" height="21" rx="6.5" fill="none" stroke="#a894ff" stroke-opacity="0.42000000000000004"/>
+    <path d="M570.375 87.2 H608" stroke="#bfb0ff" stroke-opacity="0.3"/>
+    <text x="589.1875" y="101" text-anchor="middle" font-size="11.5" font-weight="550" fill="#bfb0ff">Agent</text>
+  </g><rect x="656" y="76" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="656" y="76" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="656.5" y="76.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="669" y="93" width="30" height="30" rx="8" fill="#9aa3b2" fill-opacity="0.2"/>
+  <rect x="669.5" y="93.5" width="29" height="29" rx="7.5" fill="none" stroke="#9aa3b2" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(675 99) scale(0.0703125)" fill="#b9c0cc" d="M71.68,97.22,34.74,128l36.94,30.78a12,12,0,1,1-15.36,18.44l-48-40a12,12,0,0,1,0-18.44l48-40A12,12,0,0,1,71.68,97.22Zm176,21.56-48-40a12,12,0,1,0-15.36,18.44L221.26,128l-36.94,30.78a12,12,0,1,0,15.36,18.44l48-40a12,12,0,0,0,0-18.44ZM164.1,28.72a12,12,0,0,0-15.38,7.18l-64,176a12,12,0,0,0,7.18,15.37A11.79,11.79,0,0,0,96,228a12,12,0,0,0,11.28-7.9l64-176A12,12,0,0,0,164.1,28.72Z"/>
+  <text x="708" y="105" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">validate_order</text><text x="708" y="123" font-size="12" fill="#a8a8b1">totals checked in code</text><g>
+    <rect x="878.7" y="86" width="43.3" height="22" rx="7" fill="#141416"/>
+    <rect x="878.7" y="86" width="43.3" height="22" rx="7" fill="#9aa3b2" fill-opacity="0.2"/>
+    <rect x="879.2" y="86.5" width="42.3" height="21" rx="6.5" fill="none" stroke="#9aa3b2" stroke-opacity="0.42000000000000004"/>
+    <path d="M884.7 87.2 H916" stroke="#b9c0cc" stroke-opacity="0.3"/>
+    <text x="900.35" y="101" text-anchor="middle" font-size="11.5" font-weight="550" fill="#b9c0cc">Code</text>
+  </g><rect x="964" y="76" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="964" y="76" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="964.5" y="76.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="977" y="93" width="30" height="30" rx="8" fill="#f2b545" fill-opacity="0.2"/>
+  <rect x="977.5" y="93.5" width="29" height="29" rx="7.5" fill="none" stroke="#f2b545" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(983 99) scale(0.0703125)" fill="#ffc85e" d="M236,64a36,36,0,1,0-48,33.94V112a4,4,0,0,1-4,4H96a27.8,27.8,0,0,0-4,.29V97.94a36,36,0,1,0-24,0v60.12a36,36,0,1,0,24,0V144a4,4,0,0,1,4-4h88a28,28,0,0,0,28-28V97.94A36.07,36.07,0,0,0,236,64ZM80,52A12,12,0,1,1,68,64,12,12,0,0,1,80,52Zm0,152a12,12,0,1,1,12-12A12,12,0,0,1,80,204ZM200,76a12,12,0,1,1,12-12A12,12,0,0,1,200,76Z"/>
+  <text x="1016" y="105" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">route_confidence</text><text x="1016" y="123" font-size="12" fill="#a8a8b1">confidence at least 0.8</text><g>
+    <rect x="1155.075" y="86" width="74.92500000000001" height="22" rx="7" fill="#141416"/>
+    <rect x="1155.075" y="86" width="74.92500000000001" height="22" rx="7" fill="#f2b545" fill-opacity="0.2"/>
+    <rect x="1155.575" y="86.5" width="73.92500000000001" height="21" rx="6.5" fill="none" stroke="#f2b545" stroke-opacity="0.42000000000000004"/>
+    <path d="M1161.075 87.2 H1224" stroke="#ffc85e" stroke-opacity="0.3"/>
+    <text x="1192.5375000000001" y="101" text-anchor="middle" font-size="11.5" font-weight="550" fill="#ffc85e">Condition</text>
+  </g><rect x="40" y="356" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="40" y="356" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="40.5" y="356.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="53" y="373" width="30" height="30" rx="8" fill="#4fc3e8" fill-opacity="0.2"/>
+  <rect x="53.5" y="373.5" width="29" height="29" rx="7.5" fill="none" stroke="#4fc3e8" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(59 379) scale(0.0703125)" fill="#78d6f2" d="M246.15,133.18,146.83,33.86A19.85,19.85,0,0,0,132.69,28H40A12,12,0,0,0,28,40v92.69a19.85,19.85,0,0,0,5.86,14.14l99.32,99.32a20,20,0,0,0,28.28,0l84.69-84.69A20,20,0,0,0,246.15,133.18Zm-98.83,93.17L52,131V52h79l95.32,95.32ZM104,88A16,16,0,1,1,88,72,16,16,0,0,1,104,88Z"/>
+  <text x="92" y="385" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">label_processed</text><text x="92" y="403" font-size="12" fill="#a8a8b1">Gmail label processed</text><g>
+    <rect x="250.05" y="366" width="55.95" height="22" rx="7" fill="#141416"/>
+    <rect x="250.05" y="366" width="55.95" height="22" rx="7" fill="#4fc3e8" fill-opacity="0.2"/>
+    <rect x="250.55" y="366.5" width="54.95" height="21" rx="6.5" fill="none" stroke="#4fc3e8" stroke-opacity="0.42000000000000004"/>
+    <path d="M256.05 367.2 H300" stroke="#78d6f2" stroke-opacity="0.3"/>
+    <text x="278.02500000000003" y="381" text-anchor="middle" font-size="11.5" font-weight="550" fill="#78d6f2">Action</text>
+  </g><rect x="348" y="356" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="348" y="356" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="348.5" y="356.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="361" y="373" width="30" height="30" rx="8" fill="#4fc3e8" fill-opacity="0.2"/>
+  <rect x="361.5" y="373.5" width="29" height="29" rx="7.5" fill="none" stroke="#4fc3e8" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(367 379) scale(0.0703125)" fill="#78d6f2" d="M231.49,23.16a13,13,0,0,0-13.23-2.26L15.6,100.21a18.22,18.22,0,0,0,3.12,34.86L68,144.74V200a20,20,0,0,0,34.4,13.88l22.67-23.51L162.35,223a20,20,0,0,0,32.7-10.54L235.67,35.91A13,13,0,0,0,231.49,23.16ZM139.41,77.52,77.22,122.09l-34.43-6.75ZM92,190.06V161.35l15,13.15Zm81.16,10.52L99.28,135.81,205.59,59.63Z"/>
+  <text x="400" y="385" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">send_summary</text><text x="400" y="403" font-size="12" fill="#a8a8b1">Telegram text and page</text><g>
+    <rect x="558.05" y="366" width="55.95" height="22" rx="7" fill="#141416"/>
+    <rect x="558.05" y="366" width="55.95" height="22" rx="7" fill="#4fc3e8" fill-opacity="0.2"/>
+    <rect x="558.55" y="366.5" width="54.95" height="21" rx="6.5" fill="none" stroke="#4fc3e8" stroke-opacity="0.42000000000000004"/>
+    <path d="M564.05 367.2 H608" stroke="#78d6f2" stroke-opacity="0.3"/>
+    <text x="586.025" y="381" text-anchor="middle" font-size="11.5" font-weight="550" fill="#78d6f2">Action</text>
+  </g><rect x="656" y="356" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="656" y="356" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="656.5" y="356.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="669" y="373" width="30" height="30" rx="8" fill="#4ccf7a" fill-opacity="0.2"/>
+  <rect x="669.5" y="373.5" width="29" height="29" rx="7.5" fill="none" stroke="#4ccf7a" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(675 379) scale(0.0703125)" fill="#6fe09a" d="M48,128a12,12,0,0,0,12-12V44h76V92a12,12,0,0,0,12,12h48v12a12,12,0,0,0,24,0V88a12,12,0,0,0-3.51-8.49l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40v76A12,12,0,0,0,48,128ZM183,80H160V57ZM68,160v48a12,12,0,0,1-24,0V196H32v12a12,12,0,0,1-24,0V160a12,12,0,0,1,24,0v12H44V160a12,12,0,0,1,24,0Zm60,0a12,12,0,0,1-12,12h-4v36a12,12,0,0,1-24,0V172H84a12,12,0,0,1,0-24h32A12,12,0,0,1,128,160Zm72,0v48a12,12,0,0,1-24,0v-9.36l-.11.16a12,12,0,0,1-19.78,0l-.11-.16V208a12,12,0,0,1-24,0V160a12,12,0,0,1,21.89-6.8L166,170.82l12.11-17.62A12,12,0,0,1,200,160Zm56,48a12,12,0,0,1-12,12H220a12,12,0,0,1-12-12V160a12,12,0,0,1,24,0v36h12A12,12,0,0,1,256,208Z"/>
+  <text x="708" y="385" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">render_order</text><text x="708" y="403" font-size="12" fill="#a8a8b1">HTML confirmation</text><g>
+    <rect x="866.05" y="366" width="55.95" height="22" rx="7" fill="#141416"/>
+    <rect x="866.05" y="366" width="55.95" height="22" rx="7" fill="#4ccf7a" fill-opacity="0.2"/>
+    <rect x="866.55" y="366.5" width="54.95" height="21" rx="6.5" fill="none" stroke="#4ccf7a" stroke-opacity="0.42000000000000004"/>
+    <path d="M872.05 367.2 H916" stroke="#6fe09a" stroke-opacity="0.3"/>
+    <text x="894.025" y="381" text-anchor="middle" font-size="11.5" font-weight="550" fill="#6fe09a">Render</text>
+  </g><rect x="964" y="356" width="276" height="64" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="964" y="356" width="276" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="964.5" y="356.5" width="275" height="63" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="977" y="373" width="30" height="30" rx="8" fill="#4fc3e8" fill-opacity="0.2"/>
+  <rect x="977.5" y="373.5" width="29" height="29" rx="7.5" fill="none" stroke="#4fc3e8" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(983 379) scale(0.0703125)" fill="#78d6f2" d="M224,44H32A12,12,0,0,0,20,56V192a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V56A12,12,0,0,0,224,44ZM44,116H76v24H44Zm56,0H212v24H100ZM212,68V92H44V68ZM44,164H76v24H44Zm56,24V164H212v24Z"/>
+  <text x="1016" y="385" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">append_order</text><text x="1016" y="403" font-size="12" fill="#a8a8b1">Sheets, unique order id</text><g>
+    <rect x="1174.05" y="366" width="55.95" height="22" rx="7" fill="#141416"/>
+    <rect x="1174.05" y="366" width="55.95" height="22" rx="7" fill="#4fc3e8" fill-opacity="0.2"/>
+    <rect x="1174.55" y="366.5" width="54.95" height="21" rx="6.5" fill="none" stroke="#4fc3e8" stroke-opacity="0.42000000000000004"/>
+    <path d="M1180.05 367.2 H1224" stroke="#78d6f2" stroke-opacity="0.3"/>
+    <text x="1202.0249999999999" y="381" text-anchor="middle" font-size="11.5" font-weight="550" fill="#78d6f2">Action</text>
+  </g><path d="M316 108 H344" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M348 388 H320" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M624 108 H652" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M656 388 H628" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M932 108 H960" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M964 388 H936" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M1190 140 V352" fill="none" stroke="#4ccf7a" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="1155.5375" y="288" width="68.92500000000001" height="18" rx="6" fill="#0f0f11"/>
+  <text x="1190" y="301" text-anchor="middle" font-size="11.5" font-weight="500" fill="#6fe09a">confident</text><rect x="688" y="216" width="260" height="56" rx="11" fill="#1c1b20" filter="url(#key)"/>
+  <rect x="688" y="216" width="260" height="56" rx="11" fill="url(#sheen)"/>
+  <rect x="688.5" y="216.5" width="259" height="55" rx="10.5" fill="none" stroke="rgba(255,255,255,0.11)"/>
+  <rect x="701" y="229" width="30" height="30" rx="8" fill="#f083b4" fill-opacity="0.2"/>
+  <rect x="701.5" y="229.5" width="29" height="29" rx="7.5" fill="none" stroke="#f083b4" stroke-opacity="0.30000000000000004"/>
+  <path transform="translate(707 235) scale(0.0703125)" fill="#f7a3c8" d="M228.75,100.05c-3.52-3.67-7.15-7.46-8.34-10.33-1.06-2.56-1.14-7.83-1.21-12.47-.15-10-.34-22.44-9.18-31.27s-21.27-9-31.27-9.18c-4.64-.07-9.91-.15-12.47-1.21-2.87-1.19-6.66-4.82-10.33-8.34C148.87,20.46,140.05,12,128,12s-20.87,8.46-27.95,15.25c-3.67,3.52-7.46,7.15-10.33,8.34-2.56,1.06-7.83,1.14-12.47,1.21C67.25,37,54.81,37.14,46,46S37,67.25,36.8,77.25c-.07,4.64-.15,9.91-1.21,12.47-1.19,2.87-4.82,6.66-8.34,10.33C20.46,107.13,12,116,12,128S20.46,148.87,27.25,156c3.52,3.67,7.15,7.46,8.34,10.33,1.06,2.56,1.14,7.83,1.21,12.47.15,10,.34,22.44,9.18,31.27s21.27,9,31.27,9.18c4.64.07,9.91.15,12.47,1.21,2.87,1.19,6.66,4.82,10.33,8.34C107.13,235.54,116,244,128,244s20.87-8.46,27.95-15.25c3.67-3.52,7.46-7.15,10.33-8.34,2.56-1.06,7.83-1.14,12.47-1.21,10-.15,22.44-.34,31.27-9.18s9-21.27,9.18-31.27c.07-4.64.15-9.91,1.21-12.47,1.19-2.87,4.82-6.66,8.34-10.33C235.54,148.87,244,140.05,244,128S235.54,107.13,228.75,100.05Zm-17.32,39.29c-4.82,5-10.28,10.72-13.19,17.76-2.82,6.8-2.93,14.16-3,21.29-.08,5.36-.19,12.71-2.15,14.66s-9.3,2.07-14.66,2.15c-7.13.11-14.49.22-21.29,3-7,2.91-12.73,8.37-17.76,13.19C135.78,214.84,130.4,220,128,220s-7.78-5.16-11.34-8.57c-5-4.82-10.72-10.28-17.76-13.19-6.8-2.82-14.16-2.93-21.29-3-5.36-.08-12.71-.19-14.66-2.15s-2.07-9.3-2.15-14.66c-.11-7.13-.22-14.49-3-21.29-2.91-7-8.37-12.73-13.19-17.76C41.16,135.78,36,130.4,36,128s5.16-7.78,8.57-11.34c4.82-5,10.28-10.72,13.19-17.76,2.82-6.8,2.93-14.16,3-21.29C60.88,72.25,61,64.9,63,63s9.3-2.07,14.66-2.15c7.13-.11,14.49-.22,21.29-3,7-2.91,12.73-8.37,17.76-13.19C120.22,41.16,125.6,36,128,36s7.78,5.16,11.34,8.57c5,4.82,10.72,10.28,17.76,13.19,6.8,2.82,14.16,2.93,21.29,3,5.36.08,12.71.19,14.66,2.15s2.07,9.3,2.15,14.66c.11,7.13.22,14.49,3,21.29,2.91,7,8.37,12.73,13.19,17.76,3.41,3.56,8.57,8.94,8.57,11.34S214.84,135.78,211.43,139.34ZM176.49,95.51a12,12,0,0,1,0,17l-56,56a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L112,143l47.51-47.52A12,12,0,0,1,176.49,95.51Z"/>
+  <text x="740" y="241" font-size="14.5" font-weight="600" fill="#ededef" letter-spacing="-0.01em">approve_review</text><text x="740" y="259" font-size="12" fill="#a8a8b1">decide in the console</text><g>
+    <rect x="869.4" y="226" width="68.6" height="22" rx="7" fill="#141416"/>
+    <rect x="869.4" y="226" width="68.6" height="22" rx="7" fill="#f083b4" fill-opacity="0.2"/>
+    <rect x="869.9" y="226.5" width="67.6" height="21" rx="6.5" fill="none" stroke="#f083b4" stroke-opacity="0.42000000000000004"/>
+    <path d="M875.4 227.2 H932" stroke="#f7a3c8" stroke-opacity="0.3"/>
+    <text x="903.6999999999999" y="241" text-anchor="middle" font-size="11.5" font-weight="550" fill="#f7a3c8">Approval</text>
+  </g><path d="M1004 140 C1004 196 984 244 952 244" fill="none" stroke="#f2b545" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 5" marker-end="url(#arrow)"/><rect x="903.125" y="160" width="201.75000000000003" height="18" rx="6" fill="#0f0f11"/>
+  <text x="1004" y="173" text-anchor="middle" font-size="11.5" font-weight="500" fill="#ffc85e">below 0.8 or truncated: notice</text><path d="M818 272 C818 330 1004 318 1004 352" fill="none" stroke="#f083b4" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 5" marker-end="url(#arrow)"/><rect x="848.7" y="306" width="62.6" height="18" rx="6" fill="#0f0f11"/>
+  <text x="880" y="319" text-anchor="middle" font-size="11.5" font-weight="500" fill="#f7a3c8">approved</text><path d="M686 140 V180" fill="none" stroke="#ef6a55" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 5"/><g>
+    <rect x="462.95" y="181" width="233.05" height="22" rx="7" fill="#141416"/>
+    <rect x="462.95" y="181" width="233.05" height="22" rx="7" fill="#ef6a55" fill-opacity="0.2"/>
+    <rect x="463.45" y="181.5" width="232.05" height="21" rx="6.5" fill="none" stroke="#ef6a55" stroke-opacity="0.42000000000000004"/>
+    <path d="M468.95 182.2 H690" stroke="#ff8a76" stroke-opacity="0.3"/>
+    <text x="579.475" y="196" text-anchor="middle" font-size="11.5" font-weight="550" fill="#ff8a76">invalid: Telegram notice, no write</text>
+  </g><path d="M994 420 V458" fill="none" stroke="#4a4952" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 5"/><g>
+    <rect x="984" y="459" width="150.82500000000002" height="22" rx="7" fill="#141416"/>
+    <rect x="984" y="459" width="150.82500000000002" height="22" rx="7" fill="#9aa3b2" fill-opacity="0.2"/>
+    <rect x="984.5" y="459.5" width="149.82500000000002" height="21" rx="6.5" fill="none" stroke="#9aa3b2" stroke-opacity="0.42000000000000004"/>
+    <path d="M990 460.2 H1128.825" stroke="#b9c0cc" stroke-opacity="0.3"/>
+    <text x="1059.4125" y="474" text-anchor="middle" font-size="11.5" font-weight="550" fill="#b9c0cc">duplicate: label only</text>
+  </g><path d="M24 512 H1256" stroke="rgba(0,0,0,0.7)"/><path d="M24 513 H1256" stroke="rgba(255,255,255,0.12)"/><text x="40" y="544" font-size="13" fill="#a8a8b1">The agent only extracts. Code checks the numbers, a person approves low confidence, and every write happens in a deterministic action step.</text><text x="40" y="566" font-size="13" fill="#a8a8b1">Source: workflows/gmail-orders.yaml. Setup steps such as configuration and header checks are left out.</text></g>
+</svg>

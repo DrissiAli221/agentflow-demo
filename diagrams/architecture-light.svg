@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800" role="img" aria-labelledby="t d">
+  <title id="t">agentflow system architecture</title><desc id="d">Sources reach the gateway and triggers. Triggers publish events to Redis Streams, the orchestrator consumes them and runs steps on agent-runner, connectors, renderer and the internal sandbox. Postgres is the system of record and MLflow tracks runs.</desc>
+  <defs>
+    <filter id="card" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="rgb(0,0,0)" flood-opacity="0.05"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="rgb(0,0,0)" flood-opacity="0.05"/>
+    </filter>
+    <filter id="key" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.8" flood-color="rgb(0,0,0)" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgb(0,0,0)" flood-opacity="0.06"/>
+    </filter>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="0.6" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1.2 L8.8 5 L1 8.8 Z" fill="#a9a8a2"/>
+    </marker>
+    <linearGradient id="lit-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#4f8ae3"/>
+      <stop offset="1" stop-color="#4f8ae3" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#4fa65a"/>
+      <stop offset="1" stop-color="#4fa65a" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-amber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#e2a433"/>
+      <stop offset="1" stop-color="#e2a433" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#dc5843"/>
+      <stop offset="1" stop-color="#dc5843" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-violet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#8a70e0"/>
+      <stop offset="1" stop-color="#8a70e0" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-cyan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#3aa3c6"/>
+      <stop offset="1" stop-color="#3aa3c6" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-pink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#d96799"/>
+      <stop offset="1" stop-color="#d96799" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-slate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#8d95a3"/>
+      <stop offset="1" stop-color="#8d95a3" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="lit-coral" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.18" stop-color="#e0603f"/>
+      <stop offset="1" stop-color="#e0603f" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="1279" height="799" rx="20" fill="#e9e9e6" stroke="rgba(0,0,0,0.085)"/>
+  <g font-family="Switzer, Inter, 'SF Pro Text', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"><text x="40" y="52" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#686761">OUTSIDE</text><text x="300" y="52" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#686761">ENTRY AND EVENTS</text><text x="600" y="52" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#686761">RUN ENGINE</text><text x="930" y="52" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#686761">WORKERS</text><text x="40" y="640" font-size="10.5" font-weight="600" letter-spacing="0.09em" fill="#686761">STATE</text><path d="M24 612 H1256" stroke="#d6d5d0"/><path d="M24 613 H1256" stroke="rgba(255,255,255,0.75)"/><rect x="32" y="72" width="220" height="520" rx="16" fill="#f6f6f4" filter="url(#card)"/>
+  <rect x="32.5" y="72.5" width="219" height="519" rx="15.5" fill="none" stroke="rgba(0,0,0,0.085)"/><rect x="48" y="96" width="188" height="56" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="48" y="96" width="188" height="56" rx="11" fill="url(#sheen)"/>
+  <rect x="48.5" y="96.5" width="187" height="55" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="61" y="109" width="30" height="30" rx="8" fill="#4f8ae3" fill-opacity="0.12"/>
+  <rect x="61.5" y="109.5" width="29" height="29" rx="7.5" fill="none" stroke="#4f8ae3" stroke-opacity="0.22"/>
+  <path transform="translate(67 115) scale(0.0703125)" fill="#2563c9" d="M216,36H40A20,20,0,0,0,20,56V200a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V56A20,20,0,0,0,216,36Zm-4,24V84H44V60ZM44,196V108H212v88Z"/>
+  <text x="100" y="121" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Browser</text><text x="100" y="139" font-size="12" fill="#55544e">the console</text><rect x="48" y="276" width="188" height="56" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="48" y="276" width="188" height="56" rx="11" fill="url(#sheen)"/>
+  <rect x="48.5" y="276.5" width="187" height="55" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="61" y="289" width="30" height="30" rx="8" fill="#3aa3c6" fill-opacity="0.12"/>
+  <rect x="61.5" y="289.5" width="29" height="29" rx="7.5" fill="none" stroke="#3aa3c6" stroke-opacity="0.22"/>
+  <path transform="translate(67 295) scale(0.0703125)" fill="#0d6f93" d="M231.49,23.16a13,13,0,0,0-13.23-2.26L15.6,100.21a18.22,18.22,0,0,0,3.12,34.86L68,144.74V200a20,20,0,0,0,34.4,13.88l22.67-23.51L162.35,223a20,20,0,0,0,32.7-10.54L235.67,35.91A13,13,0,0,0,231.49,23.16ZM139.41,77.52,77.22,122.09l-34.43-6.75ZM92,190.06V161.35l15,13.15Zm81.16,10.52L99.28,135.81,205.59,59.63Z"/>
+  <text x="100" y="301" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Telegram</text><text x="100" y="319" font-size="12" fill="#55544e">bot messages</text><rect x="48" y="348" width="188" height="56" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="48" y="348" width="188" height="56" rx="11" fill="url(#sheen)"/>
+  <rect x="48.5" y="348.5" width="187" height="55" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="61" y="361" width="30" height="30" rx="8" fill="#dc5843" fill-opacity="0.12"/>
+  <rect x="61.5" y="361.5" width="29" height="29" rx="7.5" fill="none" stroke="#dc5843" stroke-opacity="0.22"/>
+  <path transform="translate(67 367) scale(0.0703125)" fill="#c13b2b" d="M224,44H32A12,12,0,0,0,20,56V192a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V56A12,12,0,0,0,224,44ZM193.15,68,128,127.72,62.85,68ZM44,188V83.28l75.89,69.57a12,12,0,0,0,16.22,0L212,83.28V188Z"/>
+  <text x="100" y="373" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Gmail</text><text x="100" y="391" font-size="12" fill="#55544e">labelled mail</text><rect x="48" y="420" width="188" height="56" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="48" y="420" width="188" height="56" rx="11" fill="url(#sheen)"/>
+  <rect x="48.5" y="420.5" width="187" height="55" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="61" y="433" width="30" height="30" rx="8" fill="#8d95a3" fill-opacity="0.12"/>
+  <rect x="61.5" y="433.5" width="29" height="29" rx="7.5" fill="none" stroke="#8d95a3" stroke-opacity="0.22"/>
+  <path transform="translate(67 439) scale(0.0703125)" fill="#5c6574" d="M192,180H118.71a56,56,0,1,1-104.6-37.46,12,12,0,1,1,21.37,10.92A31.64,31.64,0,0,0,32,168a32,32,0,0,0,64,0,12,12,0,0,1,12-12h84a12,12,0,0,1,0,24Zm0-68a55.9,55.9,0,0,0-18.45,3.12L138.22,57.71a12,12,0,0,0-20.44,12.58l40.94,66.52a12,12,0,0,0,16.52,3.93,32,32,0,1,1,19.68,59.13A12,12,0,0,0,196,223.82a10.05,10.05,0,0,0,1.09,0A56,56,0,0,0,192,112ZM57.71,178.22a12,12,0,0,0,16.51-3.93l40.94-66.52a12,12,0,0,0-3.92-16.51,32,32,0,1,1,45.28-41.8,12,12,0,1,0,21.37-10.92A56,56,0,1,0,89.1,104.32L53.78,161.71A12,12,0,0,0,57.71,178.22Z"/>
+  <text x="100" y="445" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Webhooks</text><text x="100" y="463" font-size="12" fill="#55544e">token per workflow</text><rect x="48" y="492" width="188" height="56" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="48" y="492" width="188" height="56" rx="11" fill="url(#sheen)"/>
+  <rect x="48.5" y="492.5" width="187" height="55" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="61" y="505" width="30" height="30" rx="8" fill="#e2a433" fill-opacity="0.12"/>
+  <rect x="61.5" y="505.5" width="29" height="29" rx="7.5" fill="none" stroke="#e2a433" stroke-opacity="0.22"/>
+  <path transform="translate(67 511) scale(0.0703125)" fill="#966200" d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z"/>
+  <text x="100" y="517" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Schedules</text><text x="100" y="535" font-size="12" fill="#55544e">cron ticks</text><rect x="300" y="96" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="300" y="96" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="300.5" y="96.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="313" y="113" width="30" height="30" rx="8" fill="#4f8ae3" fill-opacity="0.12"/>
+  <rect x="313.5" y="113.5" width="29" height="29" rx="7.5" fill="none" stroke="#4f8ae3" stroke-opacity="0.22"/>
+  <path transform="translate(319 119) scale(0.0703125)" fill="#2563c9" d="M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z"/>
+  <text x="352" y="125" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">gateway</text><text x="352" y="143" font-size="12" fill="#55544e">auth, proxy, SSE, console</text><g>
+    <rect x="488.45" y="106" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="488.45" y="106" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="488.95" y="106.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M494.45 107.2 H534" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="514.225" y="121" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:8000</text>
+  </g><rect x="300" y="246" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="300" y="246" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="300.5" y="246.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="313" y="263" width="30" height="30" rx="8" fill="#dc5843" fill-opacity="0.12"/>
+  <rect x="313.5" y="263.5" width="29" height="29" rx="7.5" fill="none" stroke="#dc5843" stroke-opacity="0.22"/>
+  <path transform="translate(319 269) scale(0.0703125)" fill="#c13b2b" d="M234.36,170A12,12,0,0,1,230,186.37l-96,56a12,12,0,0,1-12.1,0l-96-56a12,12,0,0,1,12.09-20.74l90,52.48L218,165.63A12,12,0,0,1,234.36,170ZM218,117.63,128,170.11,38.05,117.63A12,12,0,0,0,26,138.37l96,56a12,12,0,0,0,12.1,0l96-56A12,12,0,0,0,218,117.63ZM20,80a12,12,0,0,1,6-10.37l96-56a12.06,12.06,0,0,1,12.1,0l96,56a12,12,0,0,1,0,20.74l-96,56a12,12,0,0,1-12.1,0l-96-56A12,12,0,0,1,20,80Zm35.82,0L128,122.11,200.18,80,128,37.89Z"/>
+  <text x="352" y="275" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Redis Streams</text><text x="352" y="293" font-size="12" fill="#55544e">events, runs, live updates</text><g>
+    <rect x="481.74" y="256" width="58.26" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="481.74" y="256" width="58.26" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="482.24" y="256.5" width="57.26" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M487.74 257.2 H534" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="510.87" y="271" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:16379</text>
+  </g><rect x="300" y="396" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="300" y="396" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="300.5" y="396.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="313" y="413" width="30" height="30" rx="8" fill="#e2a433" fill-opacity="0.12"/>
+  <rect x="313.5" y="413.5" width="29" height="29" rx="7.5" fill="none" stroke="#e2a433" stroke-opacity="0.22"/>
+  <path transform="translate(319 419) scale(0.0703125)" fill="#966200" d="M219.71,117.38a12,12,0,0,0-7.25-8.52L161.28,88.39l10.59-70.61a12,12,0,0,0-20.64-10l-112,120a12,12,0,0,0,4.31,19.33l51.18,20.47L84.13,238.22a12,12,0,0,0,20.64,10l112-120A12,12,0,0,0,219.71,117.38ZM113.6,203.55l6.27-41.77a12,12,0,0,0-7.41-12.92L68.74,131.37,142.4,52.45l-6.27,41.77a12,12,0,0,0,7.41,12.92l43.72,17.49Z"/>
+  <text x="352" y="425" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">triggers</text><text x="352" y="443" font-size="12" fill="#55544e">pollers, cron, webhooks</text><g>
+    <rect x="488.45" y="406" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="488.45" y="406" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="488.95" y="406.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M494.45 407.2 H534" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="514.225" y="421" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:8004</text>
+  </g><rect x="600" y="246" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="600" y="246" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="600.5" y="246.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="613" y="263" width="30" height="30" rx="8" fill="#8a70e0" fill-opacity="0.12"/>
+  <rect x="613.5" y="263.5" width="29" height="29" rx="7.5" fill="none" stroke="#8a70e0" stroke-opacity="0.22"/>
+  <path transform="translate(619 269) scale(0.0703125)" fill="#6146c4" d="M248.49,71.51l-32-32a12,12,0,0,0-17,17L211,68h-3c-52,0-64.8,30.71-75.08,55.38-8.82,21.17-15.45,37.05-42.75,40.09a44,44,0,1,0,.28,24.08c43.34-3.87,55.07-32,64.63-54.93C164.9,109,172,92,208,92h3l-11.52,11.51a12,12,0,0,0,17,17l32-32A12,12,0,0,0,248.49,71.51ZM48,196a20,20,0,1,1,20-20A20,20,0,0,1,48,196Z"/>
+  <text x="652" y="275" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">orchestrator</text><text x="652" y="293" font-size="12" fill="#55544e">workflows, runs, steps</text><g>
+    <rect x="788.45" y="256" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="788.45" y="256" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="788.95" y="256.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M794.45 257.2 H834" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="814.225" y="271" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:8001</text>
+  </g><rect x="930" y="96" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="930" y="96" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="930.5" y="96.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="943" y="113" width="30" height="30" rx="8" fill="#8a70e0" fill-opacity="0.12"/>
+  <rect x="943.5" y="113.5" width="29" height="29" rx="7.5" fill="none" stroke="#8a70e0" stroke-opacity="0.22"/>
+  <path transform="translate(949 119) scale(0.0703125)" fill="#6146c4" d="M72,104a16,16,0,1,1,16,16A16,16,0,0,1,72,104Zm96,16a16,16,0,1,0-16-16A16,16,0,0,0,168,120Zm68-40V192a36,36,0,0,1-36,36H56a36,36,0,0,1-36-36V80A36,36,0,0,1,56,44h60V16a12,12,0,0,1,24,0V44h60A36,36,0,0,1,236,80Zm-24,0a12,12,0,0,0-12-12H56A12,12,0,0,0,44,80V192a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12Zm-12,82a30,30,0,0,1-30,30H86a30,30,0,0,1,0-60h84A30,30,0,0,1,200,162Zm-80-6v12h16V156ZM86,168H96V156H86a6,6,0,0,0,0,12Zm90-6a6,6,0,0,0-6-6H160v12h10A6,6,0,0,0,176,162Z"/>
+  <text x="982" y="125" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">agent-runner</text><text x="982" y="143" font-size="12" fill="#55544e">LangChain, Gemini, Groq</text><g>
+    <rect x="1118.45" y="106" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="1118.45" y="106" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="1118.95" y="106.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M1124.45 107.2 H1164" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="1144.2250000000001" y="121" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:8002</text>
+  </g><rect x="930" y="216" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="930" y="216" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="930.5" y="216.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="943" y="233" width="30" height="30" rx="8" fill="#3aa3c6" fill-opacity="0.12"/>
+  <rect x="943.5" y="233.5" width="29" height="29" rx="7.5" fill="none" stroke="#3aa3c6" stroke-opacity="0.22"/>
+  <path transform="translate(949 239) scale(0.0703125)" fill="#0d6f93" d="M137,168l11.52-11.51a12,12,0,0,0-17-17L120,151l-15-15,11.52-11.51a12,12,0,0,0-17-17L88,119,72.49,103.51a12,12,0,0,0-17,17L59,124,38.54,144.49a36,36,0,0,0,0,50.91l2.55,2.54L15.51,223.51a12,12,0,0,0,17,17l25.57-25.58,2.54,2.55a36.06,36.06,0,0,0,50.91,0L132,197l3.51,3.52a12,12,0,0,0,17-17ZM94.54,200.49a12,12,0,0,1-17,0L55.51,178.43a12,12,0,0,1,0-17L76,141l39,39Zm146-185a12,12,0,0,0-17,0L197.94,41.09l-2.54-2.55a36.05,36.05,0,0,0-50.91,0L124,59l-3.51-3.52a12,12,0,0,0-17,17l80,80a12,12,0,0,0,17-17L197,132l20.49-20.49a36,36,0,0,0,0-50.91l-2.55-2.54,25.58-25.57A12,12,0,0,0,240.49,15.51Zm-40,79L180,115,141,76l20.49-20.49a12,12,0,0,1,17,0l22.06,22.06a12,12,0,0,1,0,17Z"/>
+  <text x="982" y="245" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">connectors</text><text x="982" y="263" font-size="12" fill="#55544e">Google, Notion, Telegram, HTTP</text><g>
+    <rect x="1118.45" y="226" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="1118.45" y="226" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="1118.95" y="226.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M1124.45 227.2 H1164" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="1144.2250000000001" y="241" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:8003</text>
+  </g><rect x="930" y="336" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="930" y="336" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="930.5" y="336.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="943" y="353" width="30" height="30" rx="8" fill="#4fa65a" fill-opacity="0.12"/>
+  <rect x="943.5" y="353.5" width="29" height="29" rx="7.5" fill="none" stroke="#4fa65a" stroke-opacity="0.22"/>
+  <path transform="translate(949 359) scale(0.0703125)" fill="#2f7d39" d="M48,128a12,12,0,0,0,12-12V44h76V92a12,12,0,0,0,12,12h48v12a12,12,0,0,0,24,0V88a12,12,0,0,0-3.51-8.49l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40v76A12,12,0,0,0,48,128ZM183,80H160V57ZM68,160v48a12,12,0,0,1-24,0V196H32v12a12,12,0,0,1-24,0V160a12,12,0,0,1,24,0v12H44V160a12,12,0,0,1,24,0Zm60,0a12,12,0,0,1-12,12h-4v36a12,12,0,0,1-24,0V172H84a12,12,0,0,1,0-24h32A12,12,0,0,1,128,160Zm72,0v48a12,12,0,0,1-24,0v-9.36l-.11.16a12,12,0,0,1-19.78,0l-.11-.16V208a12,12,0,0,1-24,0V160a12,12,0,0,1,21.89-6.8L166,170.82l12.11-17.62A12,12,0,0,1,200,160Zm56,48a12,12,0,0,1-12,12H220a12,12,0,0,1-12-12V160a12,12,0,0,1,24,0v36h12A12,12,0,0,1,256,208Z"/>
+  <text x="982" y="365" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">renderer</text><text x="982" y="383" font-size="12" fill="#55544e">HTML pages, artifacts</text><g>
+    <rect x="1118.45" y="346" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="1118.45" y="346" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="1118.95" y="346.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M1124.45 347.2 H1164" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="1144.2250000000001" y="361" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:8005</text>
+  </g><rect x="914" y="438" width="282" height="138" rx="16" fill="none" stroke="#a9a8a2" stroke-dasharray="4 5"/><text x="930" y="462" font-size="11.5" fill="#686761">internal network, no internet</text><rect x="930" y="476" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="930" y="476" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="930.5" y="476.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="943" y="493" width="30" height="30" rx="8" fill="#8d95a3" fill-opacity="0.12"/>
+  <rect x="943.5" y="493.5" width="29" height="29" rx="7.5" fill="none" stroke="#8d95a3" stroke-opacity="0.22"/>
+  <path transform="translate(949 499) scale(0.0703125)" fill="#5c6574" d="M225.6,62.64l-88-48.17a19.91,19.91,0,0,0-19.2,0l-88,48.17A20,20,0,0,0,20,80.19v95.62a20,20,0,0,0,10.4,17.55l88,48.17a19.89,19.89,0,0,0,19.2,0l88-48.17A20,20,0,0,0,236,175.81V80.19A20,20,0,0,0,225.6,62.64ZM128,36.57,200,76,128,115.4,56,76ZM44,96.79l72,39.4v76.67L44,173.44Zm96,116.07V136.19l72-39.4v76.65Z"/>
+  <text x="982" y="505" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">sandbox</text><text x="982" y="523" font-size="12" fill="#55544e">isolated Python, no secrets</text><g>
+    <rect x="1107.725" y="486" width="62.275000000000006" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="1107.725" y="486" width="62.275000000000006" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="1108.225" y="486.5" width="61.275000000000006" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M1113.725 487.2 H1164" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="1138.8625" y="501" text-anchor="middle" font-size="11.5" font-weight="550" fill="#5c6574">no port</text>
+  </g><rect x="300" y="666" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="300" y="666" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="300.5" y="666.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="313" y="683" width="30" height="30" rx="8" fill="#3aa3c6" fill-opacity="0.12"/>
+  <rect x="313.5" y="683.5" width="29" height="29" rx="7.5" fill="none" stroke="#3aa3c6" stroke-opacity="0.22"/>
+  <path transform="translate(319 689) scale(0.0703125)" fill="#0d6f93" d="M236,208a12,12,0,0,1-12,12H32a12,12,0,0,1-12-12V48a12,12,0,0,1,24,0v99l43.51-43.52a12,12,0,0,1,17,0L128,127l43-43H160a12,12,0,0,1,0-24h40a12,12,0,0,1,12,12v40a12,12,0,0,1-24,0V101l-51.51,51.52a12,12,0,0,1-17,0L96,129,44,181v15H224A12,12,0,0,1,236,208Z"/>
+  <text x="352" y="695" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">MLflow</text><text x="352" y="713" font-size="12" fill="#55544e">run tracking, evaluation</text><g>
+    <rect x="488.45" y="676" width="51.55" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="488.45" y="676" width="51.55" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="488.95" y="676.5" width="50.55" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M494.45 677.2 H534" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="514.225" y="691" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:5050</text>
+  </g><rect x="650" y="666" width="250" height="64" rx="11" fill="#fbfbfa" filter="url(#key)"/>
+  <rect x="650" y="666" width="250" height="64" rx="11" fill="url(#sheen)"/>
+  <rect x="650.5" y="666.5" width="249" height="63" rx="10.5" fill="none" stroke="rgba(0,0,0,0.085)"/>
+  <rect x="663" y="683" width="30" height="30" rx="8" fill="#4f8ae3" fill-opacity="0.12"/>
+  <rect x="663.5" y="683.5" width="29" height="29" rx="7.5" fill="none" stroke="#4f8ae3" stroke-opacity="0.22"/>
+  <path transform="translate(669 689) scale(0.0703125)" fill="#2563c9" d="M196,35.52C177.62,25.51,153.48,20,128,20S78.38,25.51,60,35.52C39.37,46.79,28,62.58,28,80v96c0,17.42,11.37,33.21,32,44.48,18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52c20.66-11.27,32-27.06,32-44.48V80C228,62.58,216.63,46.79,196,35.52ZM204,128c0,17-31.21,36-76,36s-76-19-76-36v-8.46a88.9,88.9,0,0,0,8,4.94c18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52a88.9,88.9,0,0,0,8-4.94ZM128,44c44.79,0,76,19,76,36s-31.21,36-76,36S52,97,52,80,83.21,44,128,44Zm0,168c-44.79,0-76-19-76-36v-8.46a88.9,88.9,0,0,0,8,4.94c18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52a88.9,88.9,0,0,0,8-4.94V176C204,193,172.79,212,128,212Z"/>
+  <text x="702" y="695" font-size="14.5" font-weight="600" fill="#1b1b19" letter-spacing="-0.01em">Postgres</text><text x="702" y="713" font-size="12" fill="#55544e">runs, credentials, artifacts</text><g>
+    <rect x="831.74" y="676" width="58.26" height="22" rx="7" fill="#f6f6f4"/>
+    <rect x="831.74" y="676" width="58.26" height="22" rx="7" fill="#8d95a3" fill-opacity="0.12"/>
+    <rect x="832.24" y="676.5" width="57.26" height="21" rx="6.5" fill="none" stroke="#8d95a3" stroke-opacity="0.33999999999999997"/>
+    <path d="M837.74 677.2 H884" stroke="#5c6574" stroke-opacity="0.18"/>
+    <text x="860.87" y="691" text-anchor="middle" font-size="11" font-weight="550" fill="#5c6574" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">:15432</text>
+  </g><text x="960" y="690" font-size="12.5" fill="#55544e">Host ports bind to 127.0.0.1.</text><text x="960" y="712" font-size="12.5" fill="#55544e">Each service owns its tables</text><text x="960" y="734" font-size="12.5" fill="#55544e">and never reads another's.</text><path d="M236 124 H296" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M236 304 C270 304 266 410 296 414" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M236 376 C270 376 266 422 296 426" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M236 448 C270 448 266 434 296 438" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M236 520 C270 520 266 446 296 450" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M410 396 V314" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="385.025" y="347" width="49.95" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="410" y="360" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">events</text><path d="M470 246 V164" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 5" marker-end="url(#arrow)"/><rect x="426.05" y="197" width="87.9" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="470" y="210" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">live updates</text><path d="M550 270 H596" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M600 292 H554" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M550 116 C690 116 690 116 926 116" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="705.5375" y="100" width="68.92500000000001" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="740" y="113" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">API proxy</text><path d="M550 140 C640 140 680 180 680 242" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M850 262 C890 262 890 136 926 136" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M850 276 C890 276 890 248 926 248" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M850 290 C890 290 890 366 926 366" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><path d="M850 302 C880 302 880 506 926 506" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="871.1875" y="304" width="43.625" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="893" y="317" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">steps</text><path d="M1180 156 C1214 156 1214 220 1182 236" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="1190.1875" y="178" width="43.625" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="1212" y="191" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">tools</text><path d="M1180 146 C1244 160 1244 470 1182 500" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="1223.35" y="318" width="37.3" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="1242" y="331" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">code</text><path d="M775 310 V662" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="718.4" y="468" width="113.2" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="775" y="481" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">system of record</text><path d="M630 310 V640 Q630 698 554 698" fill="none" stroke="#a9a8a2" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/><rect x="598.7" y="548" width="62.6" height="18" rx="6" fill="#e9e9e6"/>
+  <text x="630" y="561" text-anchor="middle" font-size="11.5" font-weight="500" fill="#686761">tracking</text></g>
+</svg>
