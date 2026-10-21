@@ -10,7 +10,7 @@ an event: a Telegram message, a labelled Gmail message, a new Google Sheets row 
 upcoming Calendar event, an RSS item, a webhook or a schedule. The event starts a run of a
 workflow. The run executes steps in order: LLM agents that extract structured data, code that
 checks it, conditions, human approvals, connector actions (Gmail, Google Sheets, Drive, Calendar,
-Notion, Telegram, GitHub, any REST API) and a renderer that turns validated data into HTML pages.
+Notion, Telegram, Discord, Slack, GitHub, any REST API) and a renderer that turns validated data into HTML pages.
 Every state change is stored in Postgres and streamed live to a web console; each run is tracked
 in MLflow.
 
@@ -19,6 +19,36 @@ running in your browser on fictional demo data. Nothing in it calls a real servi
 start runs, approve them, replay them and edit workflows freely; everything resets on reload.
 
 Source code available on request.
+
+## Describe it
+
+Say in plain words what should happen, and a model drafts the whole workflow: the trigger, the
+agents, the checks, the approvals and the connector actions. The draft is checked against the real
+connector catalogue and the platform's own validation before you see it; problems go back to the
+model for one repair, and anything still wrong is listed with a suggestion. The draft opens on the
+canvas unsaved and disabled, so you review it, fill in your own ids and save it yourself. On the
+free Gemini tier it takes 5 to 30 seconds, and in a live test 7 of 8 plain-language ideas came
+back as valid drafts on each run. In the demo, the four example descriptions give complete drafts
+and no model is called.
+
+<table>
+  <tr>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="images/describe-dark.webp">
+        <img alt="Describe a workflow: a plain-language description and four examples" src="images/describe-light.webp">
+      </picture>
+      <p><b>Describe.</b> One sentence, or start from an example.</p>
+    </td>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="images/draft-dark.webp">
+        <img alt="A drafted workflow on the canvas, marked not saved, with its summary and checks" src="images/draft-light.webp">
+      </picture>
+      <p><b>Review.</b> The draft on the canvas, with what to check before saving.</p>
+    </td>
+  </tr>
+</table>
 
 ## The flagship flow
 
@@ -78,6 +108,11 @@ It cannot make the system act.
   </tr>
 </table>
 
+Also in the console: sub-workflows (a step that runs another workflow, linked both ways on the
+run pages), export and import of a workflow with everything it uses as one bundle, with a preview
+of what would change, and named API keys that can be revoked. An optional Prometheus and Grafana
+profile charts every service.
+
 The screenshots and the demo use fictional data only, so no real emails, chats or calendar
 entries are published.
 
@@ -114,7 +149,7 @@ A run moves through a small, checked state machine. Waiting always carries a rea
 ## Stack
 
 Python 3.12, FastAPI, Pydantic, SQLAlchemy (async) with Alembic, PostgreSQL 16, Redis 7, MLflow,
-LangChain with Gemini and Groq, Docker Compose; React 19, TypeScript, Vite and React Flow for the
+LangChain with Gemini and Groq, Docker Compose, optional Prometheus and Grafana; React 19, TypeScript, Vite and React Flow for the
 console. Tests use pytest, Locust, Vitest and Playwright, including resilience tests that kill
 containers mid-run and a load test of 200 webhook events with zero lost or duplicated runs.
 
