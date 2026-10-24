@@ -24,8 +24,10 @@ Source code available on request.
 
 Say in plain words what should happen, and a model drafts the whole workflow: the trigger, the
 agents, the checks, the approvals and the connector actions. The draft is checked against the real
-connector catalogue and the platform's own validation before you see it; problems go back to the
-model for one repair, and anything still wrong is listed with a suggestion. The draft opens on the
+connector catalogue and the platform's own validation before you see it. Slips with one right
+answer (a blocked string method, Markdown around generated Telegram text, a list read the wrong
+way) are fixed in code; the rest go back to the model for up to three repairs, and anything still
+wrong is listed with a suggestion. The draft opens on the
 canvas unsaved and disabled, so you review it, fill in your own ids and save it yourself. On the
 free Gemini tier it takes 5 to 30 seconds, and in a live test 7 of 8 plain-language ideas came
 back as valid drafts on each run. In the demo, the four example descriptions give complete drafts
