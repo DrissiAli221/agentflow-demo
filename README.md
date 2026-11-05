@@ -52,6 +52,59 @@ and no model is called.
   </tr>
 </table>
 
+## Change it
+
+Open a saved workflow and say what should be different: "only on weekdays", "ask me before
+saving the row", "send it to Telegram instead". The model returns the whole workflow with only
+that change, and code works out exactly what moved: each step is marked added, changed (with the
+fields) or removed on the canvas, and anything changed without being asked is flagged. A request
+the platform can't do, or one that changes nothing, says so instead of drafting. Save version
+keeps it as a new version of the same workflow.
+
+## Why did this fail?
+
+A failed run explains itself in plain words. Causes outside the workflow (an expired sign-in, a
+used-up quota, a service that is down or too slow) are recognised from the error at once, with
+what to do and a link to the place to do it, and no model is called. Anything else is read by the
+model with the failed step, its input and the workflow version that ran. When changing the
+workflow avoids the failure, **Fix it** opens the proposed change on the canvas, checked and
+marked like a Change it draft, and nothing is saved until you press Save version.
+
+<table>
+  <tr>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="images/why-dark.webp">
+        <img alt="A failed run explaining why it failed, with a one-line fix and a Fix it key" src="images/why-light.webp">
+      </picture>
+      <p><b>Explain.</b> What went wrong, where, and whether the workflow can avoid it.</p>
+    </td>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="images/fix-dark.webp">
+        <img alt="The fix on the canvas as a change draft, the changed step marked" src="images/fix-light.webp">
+      </picture>
+      <p><b>Fix it.</b> The change on the canvas, marked, ready to review and save.</p>
+    </td>
+  </tr>
+</table>
+
+## Talk to it
+
+Hold **V** (or the mic key) and say what to do: "run the morning digest", "turn the orders
+workflow off", "did anything fail today?", "change it so it only runs on weekdays". The console
+shows what it heard, which you can edit, and the one action it understood; nothing that runs,
+switches or drafts anything happens until you press Enter. Questions about runs are answered from
+the run history, and changes go through Change it. The same works from Telegram: send the bot
+`/build` with a description or a voice note, and turn the drafted workflow on with one tap.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/voice-dark.webp">
+    <img alt="A spoken change on a workflow's canvas: the words heard and the action waiting for Enter" src="images/voice-light.webp" width="80%">
+  </picture>
+</p>
+
 ## The flagship flow
 
 An order email arrives under a Gmail label. An agent with no tools extracts the order. Code checks
