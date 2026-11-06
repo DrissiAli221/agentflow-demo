@@ -26,7 +26,7 @@ Say in plain words what should happen, and a model drafts the whole workflow: th
 agents, the checks, the approvals and the connector actions. The draft is checked against the real
 connector catalogue and the platform's own validation before you see it. Slips with one right
 answer (a blocked string method, Markdown around generated Telegram text, a list read the wrong
-way) are fixed in code; the rest go back to the model for up to three repairs, and anything still
+way) are fixed in code; the rest go back to the model for up to two repairs, and anything still
 wrong is listed with a suggestion. The draft opens on the
 canvas unsaved and disabled, so you review it, fill in your own ids and save it yourself. On the
 free Gemini tier it takes 5 to 30 seconds, and in a live test 7 of 8 plain-language ideas came
@@ -64,8 +64,9 @@ keeps it as a new version of the same workflow.
 ## Why did this fail?
 
 A failed run explains itself in plain words. Causes outside the workflow (an expired sign-in, a
-used-up quota, a service that is down or too slow) are recognised from the error at once, with
-what to do and a link to the place to do it, and no model is called. Anything else is read by the
+used-up quota, a service that is down or too slow, or starting data shaped differently from the
+runs of the same version that worked) are recognised by code at once, with what to do and a link
+to the place to do it, and no model is called. Anything else is read by the
 model with the failed step, its input and the workflow version that ran. When changing the
 workflow avoids the failure, **Fix it** opens the proposed change on the canvas, checked and
 marked like a Change it draft, and nothing is saved until you press Save version.
@@ -88,6 +89,12 @@ marked like a Change it draft, and nothing is saved until you press Save version
     </td>
   </tr>
 </table>
+
+**Fixes come to you.** When a run fails, the owner gets one Telegram message with the workflow,
+the step and the explanation. **Fix it** shows the change and asks for a second tap to save it as
+a new version, **Run again** asks before it starts, and **Mute 24 h** silences that workflow.
+Repeats of the same failure count on the first message instead of sending new ones, a workflow
+sends at most three new alerts an hour, and the buttons only answer the owner's chat.
 
 ## Talk to it
 
